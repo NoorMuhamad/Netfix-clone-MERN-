@@ -88,7 +88,7 @@ router.get("/stats", async (req, res) => {
   ];
   try {
     const data = await User.aggregate([
-      { $project: { month: { $month: "$createdAt" } } },
+      { $project: { month: { $month: "$createdAt" } } },//mongo db funtion
       { $group: { _id: "$month", total: { $sum: 1 } } },
     ]);
     res.status(200).json(data)

@@ -17,4 +17,4 @@ const MovieSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-module.export = mongoose.model("Movie",MovieSchema) // it's take two agument 1st is model name and schema reference 
+module.exports = mongoose.model("Movie",MovieSchema) // it's take two agument 1st is model name and schema reference 
