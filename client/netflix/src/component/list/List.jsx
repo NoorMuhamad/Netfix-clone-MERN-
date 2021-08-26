@@ -6,7 +6,7 @@ import {
 } from "@material-ui/icons";
 import Listitem from "../listitem/Listitem";
 
-const List = () => {
+const List = ({list}) => {
   const [slideNumber, setSlideNumber] = useState(0)
   const [isMoved, setIsMoved] = useState(false)
   const listref =useRef()
@@ -27,20 +27,12 @@ const List = () => {
   }
   return (
     <div className="list">
-      <span className="listTitle">Continue to watch</span>
+      <span className="listTitle">{list.title}</span>
       <div className="wrapper">
         <ArrowBackIosOutlined className="slideArrow left" onClick={()=>handleClick("left")} style={{display:!isMoved&&"none"}} />
         <div className="container" ref={listref}>
-          <Listitem index={0} />
-          <Listitem index={1}/>
-          <Listitem index={2}/>
-          <Listitem index={3}/>
-          <Listitem index={4}/>
-          <Listitem index={5}/>
-          <Listitem index={6}/>
-          <Listitem index={7}/>
-          <Listitem index={8}/>
-          <Listitem index={9}/>
+        {list.content.map((item,i)=>(
+          <Listitem index={i} item={item} key={i}/>))}
         </div>
         <ArrowForwardIosOutlined className="slideArrow right" onClick={()=>handleClick("right")} />
       </div>

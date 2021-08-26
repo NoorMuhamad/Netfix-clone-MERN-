@@ -9,4 +9,4 @@ const ListSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-module.export = mongoose.model("List",ListSchema) // it's take two agument 1st is model name and schema reference 
+module.exports = mongoose.model("List",ListSchema) // it's take two agument 1st is model name and schema reference 
